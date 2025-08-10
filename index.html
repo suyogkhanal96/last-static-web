@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="images/favicon.png" type="images/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>suyogkhanal96</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white dark:bg-neutral-900 transition-colors duration-300">
+    <div class="min-h-screen w-full flex justify-center items-center bg-white dark:bg-neutral-900 px-6 sm:px-8 md:px-10 lg:px-4 transition-colors duration-300">
+      <div class="p-8 sm:p-10 md:p-12 lg:p-10 w-full max-w-full sm:max-w-lg rounded-lg shadow-lg bg-white dark:bg-neutral-800 transition-colors duration-300">
+        <div class="flex justify-between items-center mb-8 sm:mb-8 md:mb-8">
+          <h5 class="text-center text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 dark:text-gray-100 w-full">suyogkhanal96</h5>
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="ml-1 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+            <span id="theme-toggle-icon">🌙</span>
+          </button>
+        </div>
+        <hr class="mb-8 sm:mb-8 md:mb-8 border-gray-300 dark:border-gray-700" />
+
+        <p class="text-gray-800 dark:text-gray-200 text-sm sm:text-base md:text-lg text-center leading-relaxed mb-8 sm:mb-8 md:mb-8">
+          I'm a 17-year-old student and a tech enthusiast from Butwal, Nepal,
+         currently exploring the field of web dev/design.
+        </p>
+        <hr class="mb-8 sm:mb-8 md:mb-8 border-gray-300 dark:border-gray-700" />
+
+        <footer class="w-full flex flex-col items-center space-y-4 sm:space-y-4 md:space-y-4 text-xs sm:text-sm md:text-base">
+          <div class="space-x-2 sm:space-x-4 text-gray-900 dark:text-gray-100">
+            <u><a href="https://www.instagram.com/suyogkhanal96/" target="_blank"><i class="fab fa-instagram"></i></a></u>
+            <u><a href="https://github.com/suyogkhanal96" target="_blank"><i class="fab fa-github"></i></a></u>
+            <!-- <u><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></u> -->
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 text-center">contact.suyog96@gmail.com</p>
+          <p class="text-gray-600 dark:text-gray-400">©2025 suyogkhanal96</p>
+        </footer>
+      </div>
+    </div>
+    <script>
+      // Dark mode toggle logic
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleIcon = document.getElementById('theme-toggle-icon');
+
+      // Set initial mode from localStorage or default to dark
+      function setTheme(mode) {
+        if (mode === 'dark') {
+          html.classList.add('dark');
+          themeToggleIcon.textContent = '🌙';
+        } else {
+          html.classList.remove('dark');
+          themeToggleIcon.textContent = '☀️';
+        }
+      }
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        setTheme('dark');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        const isDark = html.classList.contains('dark');
+        if (isDark) {
+          setTheme('light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          setTheme('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>
